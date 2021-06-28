@@ -45,10 +45,10 @@
                         <td><?=$data->level == 1 ? "Admin":"Kasir" ?></td>
                         <td class="text-center" width="160px">
                         <a href="<?=site_url('user/edit/')?>" class="btn btn-primary btn-xs">
-                            <i class="fa fa-user-pencil"></i> Update 
+                            <i class="fa fa-pencil"></i> Update 
                         </a>
                         <a href="<?=site_url('user/hapus/')?>" class="btn btn-danger btn-xs">
-                            <i class="fa fa-user-trash"></i> Delete 
+                            <i class="fa fa-trash"></i> Delete 
                         </a>
                         </td>
                     </tr>
