@@ -3,10 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
-
-	public function index(){	
+    public function __construct(){
+        parent::__construct();
         check_not_login();
         $this->load->model('user_m');
+    }
+    
+
+	public function index(){	
         $data['row']  = $this->user_m->get();
 
 		$this->template->load('template','user/user_data',$data);
@@ -35,7 +39,20 @@ class User extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->template->load('template','user/user_form_add');
         } else {
-            echo "proses simpan data user";
+            $post = $this->input->post(null,TRUE);
+            $this->user_m->add($post);
+            
+            if ($this->db->affected_rows()>0) {
+                echo "<script>";
+                echo "alert('Insert Data Successfully')";
+                echo "window.location='".site_url('user')."'";
+                echo "</script>";
+
+                echo 	"<script>
+					 	alert('Insert Data Successfully')
+						 window.location='".site_url('user')."'
+						 </script>";
+            }
         }
         
         

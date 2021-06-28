@@ -25,8 +25,18 @@ class User_m extends CI_Model {
             $query = $this->db->get();
             return $query;
             
+        }
 
-            
+        public function add ($post){
+            $params = array(
+                'username' => $post['username'], 
+                'name' => $post['fullname'], 
+                'password' => sha1($post['password']), 
+                'address' => $post['address'], 
+                'level' => sha1($post['level'])
+            );
+
+            $this->db->insert('user', $params);
         }
 
 }
