@@ -104,21 +104,21 @@ class User extends CI_Controller {
                 $data['row'] = $query->row();
                 $this->template->load('template','user/user_form_edit',$data);
             }else{
-                echo "<script>";
-                echo "alert('Data tidak ditemukan!')";
-                echo "window.location='".site_url('user')."'";
-                echo "</script>";
+                echo 	"<script>
+					 	alert('Data Not Found!')
+						 window.location='".site_url('user')."'
+						 </script>";
             }
         } else {
             $post = $this->input->post(null,TRUE);
             $this->user_m->edit($post);
             
             if ($this->db->affected_rows()>0) {
-                echo "<script>";
-                echo "alert('Update Data Successfully')";
-                echo "window.location='".site_url('user')."'";
-                echo "</script>";
 
+                echo 	"<script>
+					 	alert('Update Data Successfully')
+						 window.location='".site_url('user')."'
+						 </script>";
             }
         }
         
