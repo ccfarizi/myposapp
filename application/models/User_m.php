@@ -39,6 +39,30 @@ class User_m extends CI_Model {
             $this->db->insert('user', $params);
         }
 
+
+        public function del ($id){
+            $this->db->where('user_id', $id);
+            $this->db->delete('user');
+        }
+
+        public function edit ($post){
+            $params = array(
+                'username' => $post['username'], 
+                'name' => $post['fullname'],
+                'address' => $post['address'], 
+                'level' => $post['level']
+            );
+
+            if (!empty($post['password'])) {
+                $params['password'] = sha1($post['password']);
+            }
+
+            $this->db->where('user_id', $post['user_id']);
+            $this->db->update('user', $params);
+            
+            
+        }
+
 }
 
 /* End of file User_m.php */
