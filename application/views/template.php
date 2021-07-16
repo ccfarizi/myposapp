@@ -146,7 +146,7 @@
         <li class="header">MAIN NAVIGATION</li>
 
         <li><a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="#"><i class="fa fa-truck"></i> <span>Suppliers</span></a></li>
+        <li><a href="<?=site_url('supplier')?>"><i class="fa fa-truck"></i> <span>Suppliers</span></a></li>
         <li><a href="#"><i class="fa fa-users"></i> <span>Customers</span></a></li>
 
         <li class="treeview">
@@ -193,7 +193,7 @@
           </ul>
         </li>
        
-        <?php if ($this->fungsi->user_login()->login==1){ ?>
+        <?php if ($this->fungsi->user_login()->level==1){ ?>
         <li class="header">SETTINGS</li>
         <li><a href="<?=site_url('user')?>"><i class="fa fa-user"></i> <span>Users</span></a></li>
         <?php } ?>
