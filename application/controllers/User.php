@@ -122,6 +122,11 @@ class User extends CI_Controller {
 					 	alert('Update Data Successfully')
 						 window.location='".site_url('user')."'
 						 </script>";
+            }else{
+                echo 	"<script>
+					 	alert('Nothing Update Data')
+						 window.location='".site_url('user')."'
+						 </script>";
             }
         }
         
